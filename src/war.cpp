@@ -142,23 +142,27 @@ void War::game_loop() {
         else if (comparison == 1) { give_cards(&comparison); } // Player 1 won
         else { give_cards(&comparison); } // Player 2 won
 
-        // Check if player wants to quit the game
-        std::cout << "Would you like to quit the game?" << std::endl;
+        // For DEBUG purposes. If SLEEP_TIME is 0 I want the game to run fast to the end
+        if (SLEEP_TIME != 0) {
+            // Check if player wants to quit the game
+            std::cout << "Would you like to quit the game?" << std::endl;
         
-        std::cout << "Enter \"quit\" to quit. Otherwise enter \"no\" to continue. ";
-        std::string input;
-        std::cin >> input;        
-        std::cout << std::endl; // New-line for style/formatting
+            std::cout << "Enter \"quit\" to quit. Otherwise enter \"no\" to continue. ";
+            std::string input;
+            std::cin >> input;        
+            std::cout << std::endl; // New-line for style/formatting
 
-        if (!input.empty()) {
-            // Make the string lowercase
-            std::transform(input.begin(), input.end(), input.begin(), ::tolower);
+            if (!input.empty()) {
+                // Make the string lowercase
+                std::transform(input.begin(), input.end(), input.begin(), ::tolower);
             
-            if (input == "quit" || input == "q") {
-                quit = true;
-                continue;
-            }
-        }        
+                if (input == "quit" || input == "q") {
+                    quit = true;
+                    continue;
+                }
+            }             
+        }       
+               
     }
     
     
